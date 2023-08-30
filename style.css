@@ -9,6 +9,7 @@ body {
   background-color: #f4f4f5;
   padding: 20px 30px;
   color: #5d5d65;
+  font-size: 14px;
 }
 
 /* header */
@@ -26,20 +27,23 @@ header {
 }
 
 .header-icons div {
-  padding: 6px 10px;
-  padding-top: 12px;
-  font-size: 18px;
+  padding: 6px 8px;
+  padding-top: 10px;
+  font-size: 16px;
   background-color: #fcfdfd;
   cursor: pointer;
 }
 
-.header-icons div:nth-child(1) {
+.header-icons .header-icon.selected {
   background-color: #dadadd;
 }
 
-.header-icons div:nth-child(2) {
-  border-left: 2px solid #dadadd;
+.header-icons .header-icon {
   border-right: 2px solid #dadadd;
+}
+
+.header-icons .header-icon:last-child {
+  border-right: 0;
 }
 
 /* filters */
@@ -47,7 +51,7 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: #dadadd;
-  padding: 10px;
+  padding: 15px;
   margin: 5px 0;
   border-radius: 10px;
 }
@@ -68,6 +72,7 @@ header {
 .date-range {
   display: flex;
   margin-left: 20px;
+  font-size: 14px;
 }
 
 .date-range-1,
@@ -85,6 +90,8 @@ header {
   content: "\f073";
   font-family: FontAwesome;
   font-weight: normal;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .date-range-1 {
@@ -118,7 +125,7 @@ header {
 }
 
 .data-table table thead th {
-  font-size: 15px !important;
+  font-size: 14px !important;
   text-transform: uppercase;
   padding: 20px;
   text-align: start;
@@ -162,29 +169,29 @@ header {
 
 .data-table .table-calls div {
   position: relative;
-  height: 20px;
+  height: 16px;
   background: #dadadd;
   width: 100%;
 }
 
 .data-table .table-calls .calls1 {
   position: absolute;
-  height: 10px;
+  height: 8px;
   top: 0;
   left: 0;
 }
 
 .data-table .table-calls .calls2 {
   position: absolute;
-  height: 10px;
-  top: 10px;
+  height: 8px;
+  top: 8px;
   left: 0;
 }
 
 /* button */
 .btn {
-  min-height: 40px;
-  min-width: 70px;
+  min-height: 32px;
+  min-width: 60px;
   border-radius: 10px;
   border: 1px solid #dadadd;
   background-color: white;
@@ -204,9 +211,10 @@ header {
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
-  padding: 12px 15px;
+  padding: 10px;
   min-width: 220px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .dropdown-button::after {
@@ -214,4 +222,78 @@ header {
   font-family: FontAwesome;
   font-weight: normal;
   font-size: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 45px;
+  padding: 15px 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0px 0px 10px 2px #dadadd;
+  z-index: 1;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box .btn {
+  background-color: #f4f4f5;
+  margin-left: 20px;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-selects {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.select-all-checkbox {
+  border-bottom: 2px solid #f4f4f5;
+  padding: 10px 0;
+}
+
+.select-checkbox {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.select-checkbox input {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.select-checkbox label {
+  margin-left: 5px;
+}
+
+.select-checkbox:hover {
+  background-color: #f4f4f5;
+}
+
+/* input control */
+.input-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-control input {
+  padding: 10px 30px;
+  border-color: #dadadd;
+  border-radius: 10px;
+}
+
+.input-control .left-element {
+  position: absolute;
+  left: 10px;
+  color: #dadadd;
 }
