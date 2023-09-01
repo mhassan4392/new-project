@@ -75,8 +75,8 @@ header {
   font-size: 14px;
 }
 
-.date-range-1,
-.date-range-2 {
+#date-range-1,
+#date-range-2 {
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -86,7 +86,7 @@ header {
 }
 
 /* .date-range-1::after, */
-.date-range-2::after {
+#date-range-2::after {
   content: "\f073";
   font-family: FontAwesome;
   font-weight: normal;
@@ -94,29 +94,29 @@ header {
   cursor: pointer;
 }
 
-.date-range-1 {
+#date-range-1 {
   border-right: 2px solid #dadadd;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
-.date-range-2 {
+#date-range-2 {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
 /* data table */
-.data-table {
+#data-table {
   margin-top: 20px;
 }
 
-.data-table table {
+#data-table {
   width: 100%;
   border-collapse: collapse;
   border-radius: 20px;
 }
 
-.data-table table thead th.sortable::after {
+#data-table thead th.sortable::after {
   content: "\f0dc";
   font-family: FontAwesome;
   font-weight: normal;
@@ -124,31 +124,32 @@ header {
   margin-left: 10px;
 }
 
-.data-table table thead th {
+#data-table thead th {
   font-size: 14px !important;
   text-transform: uppercase;
   padding: 20px;
   text-align: start;
   cursor: pointer;
+  width: min-content;
 }
 
-.data-table table tbody tr {
+#data-table tbody tr {
   border: 1px solid #dadadd;
 }
 
-.data-table table tbody tr td {
+#data-table tbody tr td {
   padding: 20px;
 }
 
-.data-table table tbody tr:nth-child(1) {
+#data-table tbody tr:nth-child(1) {
   border-radius: 20px;
 }
 
-.data-table table tbody tr:nth-child(odd) {
+#data-table tbody tr:nth-child(odd) {
   background-color: white;
 }
 
-.data-table .table-avatar {
+#data-table .table-avatar {
   color: white;
   font-weight: bold;
   background-color: green;
@@ -156,32 +157,33 @@ header {
   border-radius: 100%;
   padding: 7px;
   background-color: #78c989;
+  margin-right: 10px;
 }
 
-.data-table .table-name {
+#data-table .table-name {
   font-weight: 600;
   font-size: 14px;
 }
 
-.data-table .table-time {
+#data-table .table-time {
   font-size: 13px;
 }
 
-.data-table .table-calls div {
+#data-table .table-calls {
   position: relative;
   height: 16px;
   background: #dadadd;
   width: 100%;
 }
 
-.data-table .table-calls .calls1 {
+#data-table .table-calls .calls1 {
   position: absolute;
   height: 8px;
   top: 0;
   left: 0;
 }
 
-.data-table .table-calls .calls2 {
+#data-table .table-calls .calls2 {
   position: absolute;
   height: 8px;
   top: 8px;

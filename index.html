@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="./style.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
+    ></script>
+
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+    />
   </head>
   <body>
     <header>
@@ -226,28 +249,18 @@
         </div>
         <div class="date-range-filter">
           <p>Date range</p>
-          <div class="date-range">
-            <div class="date-range-1">04/06/2022</div>
-            <div class="date-range-2">04/12/2022</div>
+          <div class="date-range date-range-picker-icon">
+            <div id="date-range-1">04/06/2022</div>
+            <div id="date-range-2">04/12/2022</div>
           </div>
         </div>
       </div>
       <button class="btn">Apply</button>
     </section>
 
-    <section class="data-table">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th class="sortable">Customer</th>
-            <th class="sortable">Time</th>
-            <th class="sortable">Handled Cars</th>
-            <th class="sortable">Missed Calls</th>
-            <th class="sortable">Rejected Calls</th>
-          </tr>
-        </thead>
-        <tbody>
+    <section id="data-table-section">
+      <table id="data-table">
+        <!-- <tbody>
           <tr>
             <td>
               <div class="table-avatar">PJ</div>
@@ -635,7 +648,7 @@
               </div>
             </td>
           </tr>
-        </tbody>
+        </tbody> -->
       </table>
     </section>
 
@@ -644,6 +657,8 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./app.js"></script>
+    <script></script>
+
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>
