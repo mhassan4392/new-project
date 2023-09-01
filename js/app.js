@@ -182,8 +182,8 @@ total_agents.textContent = agentInputs.length;
 $(".select-all-checkbox input").on("change", function (e) {
   const checked = $(e.target).is(":checked");
   if (checked) {
+    agentInputs = [];
     for (let select of Array.from($(".select-checkbox input"))) {
-      console.log(select);
       select.checked = true;
       agentInputs.push(select.value);
     }
