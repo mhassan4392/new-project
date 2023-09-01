@@ -12,6 +12,10 @@ body {
   font-size: 14px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* header */
 header {
   display: flex;
@@ -261,23 +265,27 @@ header {
   padding: 10px 0;
 }
 
-.select-checkbox {
+.select-checkbox,
+.select-all-checkbox {
   padding: 10px;
   display: flex;
   align-items: center;
 }
 
-.select-checkbox input {
+.select-checkbox input,
+.select-all-checkbox input {
   width: 20px;
   height: 20px;
   border-radius: 10px;
 }
 
-.select-checkbox label {
+.select-checkbox label,
+.select-all-checkbox label {
   margin-left: 5px;
 }
 
-.select-checkbox:hover {
+.select-checkbox:hover,
+.select-all-checkbox:hover {
   background-color: #f4f4f5;
 }
 

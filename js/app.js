@@ -77,7 +77,7 @@ const columns = [
   { title: "Time", data: "time" },
   {
     title: "Handled Calls",
-    render: function (data, type) {
+    render: function () {
       return `<div class="table-calls">
                 <div
                   style="background-color: #6fcd46; width: 140px"
@@ -122,10 +122,112 @@ const columns = [
   },
 ];
 
-new DataTable("#data-table", {
+const table = new DataTable("#data-table", {
   info: false,
   paging: false,
   searching: false,
   columns,
   data: agents,
+  createdRow: function (row, data) {
+    $(row).attr("id", data.name.replace(" ", ""));
+  },
+});
+
+// select agents filter
+
+for (let agent of agents) {
+  $("#agents-select").append(
+    `<div class="select-checkbox">
+                <input type="checkbox" checked value="${agent.name}" name="" id="" />
+                <label>${agent.name}</label>
+              </div>`
+  );
+}
+
+$(".search-input").on("keyup", function (e) {
+  const selects_arr =
+    e.target.parentElement.parentElement.nextElementSibling.getElementsByClassName(
+      "select-checkbox"
+    );
+
+  const selects = Array.from(selects_arr);
+  for (let select of selects) {
+    if (e.target.value != "") {
+      const input = Array.from(select.getElementsByTagName("input"))[0];
+      if (input.value.includes(e.target.value)) {
+        select.classList.remove("hidden");
+      } else {
+        select.classList.add("hidden");
+      }
+    } else {
+      select.classList.remove("hidden");
+    }
+  }
+});
+
+$(".clear-btn").on("click", function () {
+  const selects = Array.from($(".select-checkbox"));
+  $(".search-input")[0].value = "";
+  for (let select of selects) {
+    select.classList.remove("hidden");
+  }
+});
+
+let agentInputs = agents.map((a) => a.name);
+
+const total_agents = document.getElementById("total-agents");
+
+total_agents.textContent = agentInputs.length;
+
+$(".select-all-checkbox input").on("change", function (e) {
+  const checked = $(e.target).is(":checked");
+  if (checked) {
+    for (let select of Array.from($(".select-checkbox input"))) {
+      console.log(select);
+      select.checked = true;
+      agentInputs.push(select.value);
+    }
+  } else {
+    for (let select of Array.from($(".select-checkbox input"))) {
+      select.checked = false;
+    }
+    agentInputs = [];
+  }
+
+  total_agents.textContent = agentInputs.length;
+});
+
+$(".select-checkbox input").on("change", function (e) {
+  const checked = e.target.checked;
+  if (checked) {
+    agentInputs.push(e.target.value);
+  } else {
+    const index = agentInputs.findIndex((a) => a == e.target.value);
+    agentInputs.splice(index, 1);
+  }
+
+  total_agents.textContent = agentInputs.length;
+});
+
+$("#apply-button").on("click", function () {
+  for (let agent of agents) {
+    const row = $("#" + agent.name.replace(" ", ""))[0];
+    console.log(row);
+    const inputs = agentInputs.map((a) => a.replace(" ", ""));
+
+    if (row) {
+      if (inputs.includes(row.id)) {
+        const r = table.row("#" + agent.name.replace(" ", ""));
+      } else {
+        table
+          .row("#" + agent.name.replace(" ", ""))
+          .remove()
+          .draw(false);
+      }
+    } else {
+      if (inputs.includes(agent.name.replace(" ", ""))) {
+        table.row.add(agent).draw();
+      }
+    }
+  }
 });
