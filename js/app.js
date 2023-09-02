@@ -32,16 +32,16 @@ for (const dropdown of dropdowns) {
   });
 }
 
-const h_icons_arr = document.getElementsByClassName("header-icon");
-const h_icons = Array.from(h_icons_arr);
-for (let icon of h_icons) {
-  icon.addEventListener("click", (e) => {
-    for (let i of h_icons) {
-      i.classList.remove("selected");
-    }
-    icon.classList.add("selected");
-  });
-}
+// const h_icons_arr = document.getElementsByClassName("header-icon");
+// const h_icons = Array.from(h_icons_arr);
+// for (let icon of h_icons) {
+//   icon.addEventListener("click", (e) => {
+//     for (let i of h_icons) {
+//       i.classList.remove("selected");
+//     }
+//     icon.classList.add("selected");
+//   });
+// }
 
 $(".screen1-icon").on("click", function () {
   $(".screen1-icon").addClass("selected");
@@ -68,6 +68,10 @@ $(".screen3-icon").on("click", function () {
   $("#screen3").removeClass("hidden");
   $("#screen2").addClass("hidden");
   $("#screen1").addClass("hidden");
+
+  displayScreen3Agents();
+  displayCharts();
+  renderCharts();
 });
 
 // date picker
@@ -239,28 +243,6 @@ $(".select-checkbox input").on("change", function (e) {
   total_agents.textContent = agentInputs.length;
 });
 
-$("#apply-button").on("click", function () {
-  for (let agent of agents) {
-    const row = $("#" + agent.name.replace(" ", ""))[0];
-    const inputs = agentInputs.map((a) => a.replace(" ", ""));
-
-    if (row) {
-      if (inputs.includes(row.id)) {
-        const r = table.row("#" + agent.name.replace(" ", ""));
-      } else {
-        table
-          .row("#" + agent.name.replace(" ", ""))
-          .remove()
-          .draw(false);
-      }
-    } else {
-      if (inputs.includes(agent.name.replace(" ", ""))) {
-        table.row.add(agent).draw();
-      }
-    }
-  }
-});
-
 // screen 2
 
 let page = 1;
@@ -397,29 +379,49 @@ function displayScreen2Boxes() {
     );
   });
 
-  $(".close-box").on("click", function (e) {
-    const index = agentInputs.findIndex(
-      (a) => a.replace(" ", "") == e.target.id
-    );
-    agentInputs.splice(index, 1);
+  $(".screen2-boxes .close-box").on("click", screen2Close);
+}
 
-    as = agents.filter((o) => agentInputs.includes(o.name));
-    screen2Boxes = as.length;
-    count = Math.ceil(screen2Boxes / limit);
-    displayScreen2Boxes();
-    total_agents.textContent = agentInputs.length;
+function screen2Close(e) {
+  const index = agentInputs.findIndex((a) => a.replace(" ", "") == e.target.id);
+  agentInputs.splice(index, 1);
 
-    const selects = Array.from(
-      document.getElementsByClassName("select-checkbox")
-    );
+  as = agents.filter((o) => agentInputs.includes(o.name));
+  screen2Boxes = as.length;
+  count = Math.ceil(screen2Boxes / limit);
+  displayScreen2Boxes();
+  total_agents.textContent = agentInputs.length;
 
-    for (let select of selects) {
-      const input = select.querySelector("input");
-      if (input.value.replace(" ", "") == e.target.id) {
-        input.checked = false;
+  const selects = Array.from(
+    document.getElementsByClassName("select-checkbox")
+  );
+
+  for (let select of selects) {
+    const input = select.querySelector("input");
+    if (input.value.replace(" ", "") == e.target.id) {
+      input.checked = false;
+    }
+  }
+
+  for (let agent of agents) {
+    const row = $("#" + agent.name.replace(" ", ""))[0];
+    const inputs = agentInputs.map((a) => a.replace(" ", ""));
+
+    if (row) {
+      if (inputs.includes(row.id)) {
+        const r = table.row("#" + agent.name.replace(" ", ""));
+      } else {
+        table
+          .row("#" + agent.name.replace(" ", ""))
+          .remove()
+          .draw(false);
+      }
+    } else {
+      if (inputs.includes(agent.name.replace(" ", ""))) {
+        table.row.add(agent).draw();
       }
     }
-  });
+  }
 }
 
 displayScreen2Boxes();
@@ -438,11 +440,241 @@ $(".screen2-pagination .left-btn").on("click", function (e) {
   }
 });
 
+function screen3Close(e) {
+  const index = agentInputs.findIndex((a) => a.replace(" ", "") == e.target.id);
+  agentInputs.splice(index, 1);
+
+  as = agents.filter((o) => agentInputs.includes(o.name));
+  screen2Boxes = as.length;
+  count = Math.ceil(screen2Boxes / limit);
+  displayScreen2Boxes();
+  total_agents.textContent = agentInputs.length;
+  displayScreen3Agents();
+  const selects = Array.from(
+    document.getElementsByClassName("select-checkbox")
+  );
+
+  for (let select of selects) {
+    const input = select.querySelector("input");
+    if (input.value.replace(" ", "") == e.target.id) {
+      input.checked = false;
+    }
+  }
+
+  for (let agent of agents) {
+    const row = $("#" + agent.name.replace(" ", ""))[0];
+    const inputs = agentInputs.map((a) => a.replace(" ", ""));
+
+    if (row) {
+      if (inputs.includes(row.id)) {
+        const r = table.row("#" + agent.name.replace(" ", ""));
+      } else {
+        table
+          .row("#" + agent.name.replace(" ", ""))
+          .remove()
+          .draw(false);
+      }
+    } else {
+      if (inputs.includes(agent.name.replace(" ", ""))) {
+        table.row.add(agent).draw();
+      }
+    }
+  }
+
+  displayCharts();
+  renderCharts();
+}
+
+function displayScreen3Agents() {
+  $(".screen3-agents").empty();
+  for (let agent of as) {
+    $(".screen3-agents").append(`
+     <div class="screen3-agent">
+          <div class="agent-color" style="background-color:${
+            agent.color
+          }"></div>
+          <p>${agent.name}</p>
+          <i class="fa-solid fa-circle-xmark close-box" id="${agent.name.replace(
+            " ",
+            ""
+          )}"></i>
+        </div>`);
+  }
+
+  $(".screen3-agents .close-box").on("click", screen3Close);
+}
+
+displayScreen3Agents();
+
+function getChartData(a, i) {
+  let title = "";
+  let data = {};
+  // console.log(a, i);
+  switch (i) {
+    case 1:
+      title = "Average Ring Time";
+      data = {
+        name: a.name,
+        data: a.dataSet.averageRingTime,
+      };
+      break;
+    case 2:
+      title = "Average Call Time";
+      data = {
+        name: a.name,
+        data: a.dataSet.averageCallTime,
+      };
+      break;
+    case 3:
+      title = "Total Calls";
+      data = {
+        name: a.name,
+        data: a.dataSet.totalCalls,
+      };
+      break;
+    case 4:
+      title = "Handled Calls";
+      data = {
+        name: a.name,
+        data: a.dataSet.handledCalls,
+      };
+      break;
+    case 5:
+      title = "Missed Calls";
+      data = {
+        name: a.name,
+        data: a.dataSet.missedCalls,
+      };
+      break;
+    case 6:
+      title = "Rejected Calls";
+      data = {
+        name: a.name,
+        data: a.dataSet.rejectedCalls,
+      };
+      break;
+  }
+
+  return { title, data };
+}
+
+let charts = [];
+
+function displayCharts() {
+  $(".screen3-charts").html(
+    `   <div id="chartContainer1" class="screen3-chart"></div>
+        <div id="chartContainer2" class="screen3-chart"></div>
+        <div id="chartContainer3" class="screen3-chart"></div>
+        <div id="chartContainer4" class="screen3-chart"></div>
+        <div id="chartContainer5" class="screen3-chart"></div>
+        <div id="chartContainer6" class="screen3-chart"></div>`
+  );
+  charts = [];
+  const colors = as.map((c) => c.color);
+  let i = 1;
+  for (let b of Array.from({ length: 6 })) {
+    let title = "Calls";
+    const series = as.map((a) => {
+      const d = getChartData(a, i);
+      title = d.title;
+      return {
+        name: d.data.name,
+        data: d.data.data,
+      };
+    });
+
+    var options = {
+      title: {
+        text: title,
+        align: "left",
+        margin: 10,
+      },
+      legend: {
+        show: false,
+      },
+      chart: {
+        type: "area",
+        toolbar: {
+          show: false,
+        },
+      },
+      stroke: {
+        curve: "straight",
+        width: 2,
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 0.5,
+          opacityFrom: 0.1,
+          opacityTo: 0.2,
+          stops: [0, 90, 100],
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      series,
+      colors,
+
+      xaxis: {
+        categories: [
+          "04/10",
+          "04/11",
+          "04/12",
+          "04/13",
+          "04/14",
+          "04/15",
+          "04/16",
+        ],
+      },
+    };
+
+    charts = [
+      ...charts,
+      new ApexCharts(document.querySelector(`#chartContainer${i}`), options),
+    ];
+    i = i + 1;
+  }
+}
+
+function renderCharts() {
+  for (let chart of charts) {
+    chart.render();
+  }
+}
+
+displayCharts();
+renderCharts();
+
 $("#apply-button").on("click", function () {
+  for (let agent of agents) {
+    const row = $("#" + agent.name.replace(" ", ""))[0];
+    const inputs = agentInputs.map((a) => a.replace(" ", ""));
+
+    if (row) {
+      if (inputs.includes(row.id)) {
+        const r = table.row("#" + agent.name.replace(" ", ""));
+      } else {
+        table
+          .row("#" + agent.name.replace(" ", ""))
+          .remove()
+          .draw(false);
+      }
+    } else {
+      if (inputs.includes(agent.name.replace(" ", ""))) {
+        table.row.add(agent).draw();
+      }
+    }
+  }
+
   page = 1;
   as = agents.filter((o) => agentInputs.includes(o.name));
   screen2Boxes = as.length;
   count = Math.ceil(screen2Boxes / limit);
   displayScreen2Boxes();
+  console.log(as);
+  displayCharts();
+  renderCharts();
+  displayScreen3Agents();
 });
-const closeBoxes = Array.from(document.getElementsByClassName("close-box"));

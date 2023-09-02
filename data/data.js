@@ -8,6 +8,15 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
+    color: "pink",
+    dataSet: {
+      totalCalls: [10, 15, 20, 25, 30, 35, 40],
+      handledCalls: [10, 15, 20, 25, 30, 35, 40],
+      missedCalls: [10, 15, 20, 25, 30, 35, 40],
+      rejectedCalls: [10, 15, 20, 25, 30, 35, 40],
+      averageRingTime: [10, 15, 20, 25, 30, 35, 40],
+      averageCallTime: [10, 15, 20, 25, 30, 35, 40],
+    },
   },
   {
     name: "Alice Smith",
@@ -18,6 +27,15 @@ const agents = [
     handledCalls: "15",
     missedCalls: "19",
     rejectedCalls: "14",
+    color: "purple",
+    dataSet: {
+      totalCalls: [5, 10, 5, 55, 40, 15, 10],
+      handledCalls: [5, 10, 5, 55, 40, 15, 10],
+      missedCalls: [5, 10, 5, 55, 40, 15, 10],
+      rejectedCalls: [5, 10, 5, 55, 40, 15, 10],
+      averageRingTime: [5, 10, 5, 55, 40, 15, 10],
+      averageCallTime: [5, 10, 5, 55, 40, 15, 10],
+    },
   },
   {
     name: "Amelia Johns",
@@ -28,6 +46,15 @@ const agents = [
     handledCalls: "22",
     missedCalls: "29",
     rejectedCalls: "24",
+    color: "brown",
+    dataSet: {
+      totalCalls: [25, 30, 15, 5, 10, 45, 60],
+      handledCalls: [25, 30, 15, 5, 10, 45, 60],
+      missedCalls: [25, 30, 15, 5, 10, 45, 60],
+      rejectedCalls: [25, 30, 15, 5, 10, 45, 60],
+      averageRingTime: [25, 30, 15, 5, 10, 45, 60],
+      averageCallTime: [25, 30, 15, 5, 10, 45, 60],
+    },
   },
   {
     name: "Charles Williams",
@@ -38,6 +65,15 @@ const agents = [
     handledCalls: "32",
     missedCalls: "39",
     rejectedCalls: "34",
+    color: "blue",
+    dataSet: {
+      totalCalls: [15, 10, 45, 25, 30, 15, 20],
+      handledCalls: [15, 10, 45, 25, 30, 15, 20],
+      missedCalls: [15, 10, 45, 25, 30, 15, 20],
+      rejectedCalls: [15, 10, 45, 25, 30, 15, 20],
+      averageRingTime: [15, 10, 45, 25, 30, 15, 20],
+      averageCallTime: [15, 10, 45, 25, 30, 15, 20],
+    },
   },
   {
     name: "Evelin Miller",
@@ -48,6 +84,15 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
+    color: "green",
+    dataSet: {
+      totalCalls: [35, 10, 25, 55, 10, 10, 5],
+      handledCalls: [35, 10, 25, 55, 10, 10, 5],
+      missedCalls: [35, 10, 25, 55, 10, 10, 5],
+      rejectedCalls: [35, 10, 25, 55, 10, 10, 5],
+      averageRingTime: [35, 10, 25, 55, 10, 10, 5],
+      averageCallTime: [35, 10, 25, 55, 10, 10, 5],
+    },
   },
   {
     name: "Jeremy Brown",
@@ -58,6 +103,15 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
+    color: "red",
+    dataSet: {
+      totalCalls: [15, 40, 25, 55, 20, 5, 25],
+      handledCalls: [15, 40, 25, 55, 20, 5, 25],
+      missedCalls: [15, 40, 25, 55, 20, 5, 25],
+      rejectedCalls: [15, 40, 25, 55, 20, 5, 25],
+      averageRingTime: [15, 40, 25, 55, 20, 5, 25],
+      averageCallTime: [15, 40, 25, 55, 20, 5, 25],
+    },
   },
   {
     name: "Larry Davis",
@@ -68,6 +122,15 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
+    color: "yellow",
+    dataSet: {
+      totalCalls: [5, 10, 15, 20, 25, 30, 35],
+      handledCalls: [5, 10, 15, 20, 25, 30, 35],
+      missedCalls: [5, 10, 15, 20, 25, 30, 35],
+      rejectedCalls: [5, 10, 15, 20, 25, 30, 35],
+      averageRingTime: [5, 10, 15, 20, 25, 30, 35],
+      averageCallTime: [5, 10, 15, 20, 25, 30, 35],
+    },
   },
   {
     name: "Peter Johson",
@@ -78,6 +141,15 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
+    color: "orange",
+    dataSet: {
+      totalCalls: [65, 10, 45, 25, 15, 25, 15],
+      handledCalls: [65, 10, 45, 25, 15, 25, 15],
+      missedCalls: [65, 10, 45, 25, 15, 25, 15],
+      rejectedCalls: [65, 10, 45, 25, 15, 25, 15],
+      averageRingTime: [65, 10, 45, 25, 15, 25, 15],
+      averageCallTime: [65, 10, 45, 25, 15, 25, 15],
+    },
   },
   {
     name: "John Doe",
@@ -88,6 +160,15 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
+    color: "aqua",
+    dataSet: {
+      totalCalls: [15, 60, 40, 15, 5, 45, 15],
+      handledCalls: [15, 60, 40, 15, 5, 45, 15],
+      missedCalls: [15, 60, 40, 15, 5, 45, 15],
+      rejectedCalls: [15, 60, 40, 15, 5, 45, 15],
+      averageRingTime: [15, 60, 40, 15, 5, 45, 15],
+      averageCallTime: [15, 60, 40, 15, 5, 45, 15],
+    },
   },
 ];
 

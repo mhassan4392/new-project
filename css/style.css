@@ -310,12 +310,13 @@ header {
 
 /* screen 2 */
 .screen2-boxes {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
 }
 
 .screen2-box {
-  width: 23%;
+  grid-column: auto;
 }
 
 .box-title {
@@ -469,4 +470,50 @@ header {
 
 .screen2-pagination .pages .number {
   font-weight: bold;
+}
+
+/* screen3 */
+
+.screen3-agents {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.screen3-agent {
+  display: flex;
+  margin-right: 50px;
+  align-items: center;
+}
+
+.screen3-agent div {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.screen3-agent p {
+  font-weight: bold;
+}
+
+.screen3-agent i {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.screen3-charts {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.screen3-chart {
+  background-color: white;
+  border-radius: 10px !important;
+  box-shadow: 0px 0px 5px 2px #dadadd;
+  padding: 15px 10px;
 }
