@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Screen1</title>
 
     <script
       type="text/javascript"
@@ -38,13 +38,13 @@
         </div>
       </div>
       <div class="header-icons">
-        <div class="header-icon selected">
+        <div class="header-icon selected screen1-icon">
           <i class="fa-solid fa-list"></i>
         </div>
-        <div class="header-icon">
+        <div class="header-icon screen2-icon">
           <i class="fa-solid fa-table-cells-large"></i>
         </div>
-        <div class="header-icon">
+        <div class="header-icon screen3-icon">
           <i class="fa-solid fa-chart-column"></i>
         </div>
       </div>
@@ -100,10 +100,35 @@
       </div>
       <button class="btn" id="apply-button">Apply</button>
     </section>
+    <main id="screen1" class="">
+      <section id="data-table-section">
+        <table id="data-table"></table>
+      </section>
+    </main>
+    <main id="screen2" class="hidden">
+      <section class="screen2-boxes"></section>
 
-    <section id="data-table-section">
-      <table id="data-table"></table>
-    </section>
+      <section class="screen2-pagination">
+        <div class="dropdown">
+          <div class="dropdown-button">Select</div>
+        </div>
+        <div class="pages">
+          <div class="left-btn">
+            <i class="fa-solid fa-caret-left"></i>
+          </div>
+          <div>
+            <span>Page</span>
+            <span class="number page-number"></span>
+            <span>of</span>
+            <span class="number total-pages"></span>
+          </div>
+          <div class="right-btn">
+            <i class="fa-solid fa-caret-right"></i>
+          </div>
+        </div>
+      </section>
+    </main>
+    <main id="screen3" class="hidden"></main>
 
     <script
       src="https://kit.fontawesome.com/946037eca7.js"

@@ -43,6 +43,34 @@ for (let icon of h_icons) {
   });
 }
 
+$(".screen1-icon").on("click", function () {
+  $(".screen1-icon").addClass("selected");
+  $(".screen2-icon").removeClass("selected");
+  $(".screen3-icon").removeClass("selected");
+  $("#screen1").removeClass("hidden");
+  $("#screen2").addClass("hidden");
+  $("#screen3").addClass("hidden");
+});
+
+$(".screen2-icon").on("click", function () {
+  $(".screen2-icon").addClass("selected");
+  $(".screen1-icon").removeClass("selected");
+  $(".screen3-icon").removeClass("selected");
+  $("#screen2").removeClass("hidden");
+  $("#screen1").addClass("hidden");
+  $("#screen3").addClass("hidden");
+});
+
+$(".screen3-icon").on("click", function () {
+  $(".screen3-icon").addClass("selected");
+  $(".screen2-icon").removeClass("selected");
+  $(".screen1-icon").removeClass("selected");
+  $("#screen3").removeClass("hidden");
+  $("#screen2").addClass("hidden");
+  $("#screen1").addClass("hidden");
+});
+
+// date picker
 $(function () {
   $(".date-range-picker-icon").daterangepicker(
     {
@@ -59,6 +87,8 @@ $(function () {
     }
   );
 });
+
+// data table
 
 const columns = [
   {
@@ -212,7 +242,6 @@ $(".select-checkbox input").on("change", function (e) {
 $("#apply-button").on("click", function () {
   for (let agent of agents) {
     const row = $("#" + agent.name.replace(" ", ""))[0];
-    console.log(row);
     const inputs = agentInputs.map((a) => a.replace(" ", ""));
 
     if (row) {
@@ -231,3 +260,189 @@ $("#apply-button").on("click", function () {
     }
   }
 });
+
+// screen 2
+
+let page = 1;
+const limit = 4;
+let as = agents.filter((o) => agentInputs.includes(o.name));
+let screen2Boxes = as.length;
+let count = Math.ceil(screen2Boxes / limit);
+
+function displayScreen2Boxes() {
+  if (as.length == 0) {
+    page = 0;
+  }
+  const start = (page - 1) * limit;
+  const end = limit * page;
+  const a = as.slice(start, end);
+  $(".screen2-boxes").empty();
+  for (let agent of a) {
+    $(".screen2-boxes").append(
+      `<div class="screen2-box">
+          <div class="box-title">
+            <p>${agent.name}</p>
+            <i class="fa-solid fa-circle-xmark close-box" id="${agent.name.replace(
+              " ",
+              ""
+            )}"></i>
+          </div>
+          <div class="box-card">
+            <div class="box-calls">
+              <div>
+                <i class="fa-solid fa-phone"></i>
+                <span>${agent.totalCalls}</span>
+              </div>
+              <p>Total Calls</p>
+            </div>
+            <div class="box-calls">
+              <div>
+                <i class="fa-solid fa-stopwatch"></i>
+                <span>${agent.averageCallTime}</span>
+              </div>
+              <p>Average Call Time</p>
+            </div>
+            <div class="box-calls">
+              <div>
+                <i class="fa-solid fa-stopwatch"></i>
+                <span>${agent.averageRingTime}</span>
+              </div>
+              <p>Average Ring Time</p>
+            </div>
+
+            <div class="box-progress handled">
+              <p class="title">Handled Calls</p>
+              <p class="subtitle">${agent.handledCalls} in queue</p>
+              <div class="progress">
+                <div class="barOverflow">
+                  <div class="bar"></div>
+                </div>
+                <span class="progress-number">${agent.handledCalls}</span>
+              </div>
+
+              <div class="progress-length">
+                <p>0</p>
+                <p>100</p>
+              </div>
+            </div>
+
+            <div class="box-progress missed">
+              <p class="title">Missed Calls</p>
+              <p class="subtitle">${agent.missedCalls} calls</p>
+              <div class="progress">
+                <div class="barOverflow">
+                  <div class="bar"></div>
+                </div>
+                <span class="progress-number">${agent.missedCalls}</span>
+              </div>
+
+              <div class="progress-length">
+                <p>0</p>
+                <p>100</p>
+              </div>
+            </div>
+
+            <div class="box-progress rejected">
+              <p class="title">Rejected Calls</p>
+              <p class="subtitle">${agent.rejectedCalls} calls</p>
+              <div class="progress">
+                <div class="barOverflow">
+                  <div class="bar"></div>
+                </div>
+                <span class="progress-number">${agent.rejectedCalls}</span>
+              </div>
+
+              <div class="progress-length">
+                <p>0</p>
+                <p>100</p>
+              </div>
+            </div>
+          </div>
+        </div>`
+    );
+  }
+
+  if (page == 1 || page < 1) {
+    $(".screen2-pagination .left-btn").addClass("disabled");
+  } else {
+    $(".screen2-pagination .left-btn").removeClass("disabled");
+  }
+
+  if (page == count || page > count) {
+    $(".screen2-pagination .right-btn").addClass("disabled");
+  } else {
+    $(".screen2-pagination .right-btn").removeClass("disabled");
+  }
+  $(".page-number").text(page);
+  $(".total-pages").text(count);
+
+  $(".progress").each(function () {
+    var $bar = $(this).find(".bar");
+    var $val = $(this).find("span");
+    var perc = parseInt($val.text(), 10);
+
+    $({ p: 0 }).animate(
+      { p: perc },
+      {
+        duration: 3000,
+        easing: "swing",
+        step: function (p) {
+          $bar.css({
+            transform: "rotate(" + (45 + p * 1.8) + "deg)", // 100%=180° so: ° = % * 1.8
+            // 45 is to add the needed rotation to have the green borders at the bottom
+          });
+          $val.text(p | 0);
+        },
+      }
+    );
+  });
+
+  $(".close-box").on("click", function (e) {
+    const index = agentInputs.findIndex(
+      (a) => a.replace(" ", "") == e.target.id
+    );
+    agentInputs.splice(index, 1);
+
+    as = agents.filter((o) => agentInputs.includes(o.name));
+    screen2Boxes = as.length;
+    count = Math.ceil(screen2Boxes / limit);
+    displayScreen2Boxes();
+    total_agents.textContent = agentInputs.length;
+
+    const selects = Array.from(
+      document.getElementsByClassName("select-checkbox")
+    );
+
+    for (let select of selects) {
+      const input = select.querySelector("input");
+      if (input.value.replace(" ", "") == e.target.id) {
+        input.checked = false;
+      }
+    }
+  });
+}
+
+displayScreen2Boxes();
+
+$(".screen2-pagination .right-btn").on("click", function (e) {
+  if (page < count) {
+    page = page + 1;
+    displayScreen2Boxes();
+  }
+});
+
+$(".screen2-pagination .left-btn").on("click", function (e) {
+  if (page > 1) {
+    page = page - 1;
+    displayScreen2Boxes();
+  }
+});
+
+$("#apply-button").on("click", function () {
+  page = 1;
+  as = agents.filter((o) => agentInputs.includes(o.name));
+  screen2Boxes = as.length;
+  count = Math.ceil(screen2Boxes / limit);
+  displayScreen2Boxes();
+});
+const closeBoxes = Array.from(document.getElementsByClassName("close-box"));

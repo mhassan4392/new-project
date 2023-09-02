@@ -307,3 +307,166 @@ header {
   left: 10px;
   color: #dadadd;
 }
+
+/* screen 2 */
+.screen2-boxes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.screen2-box {
+  width: 23%;
+}
+
+.box-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.screen2-box .box-card {
+  background-color: white;
+  padding: 0px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px #dadadd;
+}
+
+.screen2-box .close-box {
+  cursor: pointer;
+}
+
+.screen2-box .box-card .box-calls,
+.screen2-box .box-card .box-progress {
+  border-bottom: 2px solid #ebebed;
+  padding: 18px 0px;
+}
+
+.screen2-box .box-card .box-progress:last-child {
+  border-bottom: 0px;
+}
+
+.screen2-box .box-card .box-calls div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.screen2-box .box-card .box-calls p {
+  font-weight: bold;
+}
+
+.screen2-box .box-card .box-calls span {
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+.progress {
+  position: relative;
+  margin: 4px;
+  /* float: left; */
+  text-align: center;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.barOverflow {
+  /* Wraps the rotating .bar */
+  position: relative;
+  overflow: hidden; /* Comment this line to understand the trick */
+  width: 130px;
+  height: 65px; /* Half circle (overflow) */
+  margin-bottom: -14px; /* bring the numbers up */
+}
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130px;
+  height: 130px; /* full circle! */
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 30px solid #eee; /* half gray, */
+  /* border-bottom-color: #0bf; half azure */
+  /* border-right-color: #0bf; */
+}
+
+.handled .bar {
+  border-bottom-color: #209218; /* half azure */
+  border-right-color: #209218;
+}
+
+.missed .bar {
+  border-bottom-color: #ffbe01; /* half azure */
+  border-right-color: #ffbe01;
+}
+
+.rejected .bar {
+  border-bottom-color: #cc1700; /* half azure */
+  border-right-color: #cc1700;
+}
+
+.progress-number {
+  position: absolute;
+  top: 48px;
+  font-weight: bold;
+}
+
+.progress-length {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 6px 0px 7px 4px;
+  font-weight: bold;
+}
+
+.screen2-box .box-progress .title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.screen2-box .box-progress .subtitle {
+  font-size: 13px;
+}
+
+.screen2-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.screen2-pagination .pages {
+  display: flex;
+  align-items: center;
+}
+
+.screen2-pagination .pages .left-btn,
+.screen2-pagination .pages .right-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  border: 1px solid #dadadd;
+  margin-left: 15px;
+  border-radius: 10px;
+  font-size: 11px !important;
+  background-color: white;
+}
+
+.screen2-pagination .pages .left-btn.disabled,
+.screen2-pagination .pages .right-btn.disabled {
+  background-color: transparent !important;
+  cursor: not-allowed !important;
+}
+
+.screen2-pagination .pages .left-btn {
+  margin-right: 15px;
+}
+
+.screen2-pagination .pages .number {
+  font-weight: bold;
+}
