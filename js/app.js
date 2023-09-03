@@ -32,17 +32,6 @@ for (const dropdown of dropdowns) {
   });
 }
 
-// const h_icons_arr = document.getElementsByClassName("header-icon");
-// const h_icons = Array.from(h_icons_arr);
-// for (let icon of h_icons) {
-//   icon.addEventListener("click", (e) => {
-//     for (let i of h_icons) {
-//       i.classList.remove("selected");
-//     }
-//     icon.classList.add("selected");
-//   });
-// }
-
 $(".screen1-icon").on("click", function () {
   $(".screen1-icon").addClass("selected");
   $(".screen2-icon").removeClass("selected");
@@ -98,12 +87,14 @@ const columns = [
   {
     title: "Customer",
     data: "name",
-    render: function (data) {
+    render: function (data, _, row) {
       const avatar = data.split(" ");
       const one = avatar[0].substring(0, 1);
       const two = avatar[1].substring(0, 1);
-      return `<div>
-        <span class="table-avatar">${one + two}</span>
+      return `<div class="table-member">
+        <span class="table-avatar" style="background-color:${row.color}">${
+        one + two
+      }</span>
         <span class="table-name">${data}</span>
         </div>`;
     },
@@ -156,7 +147,7 @@ const columns = [
   },
 ];
 
-const table = new DataTable("#data-table", {
+const table = new DataTable("#index-data-table", {
   info: false,
   paging: false,
   searching: false,
@@ -209,9 +200,9 @@ $(".clear-btn").on("click", function () {
 
 let agentInputs = agents.map((a) => a.name);
 
-const total_agents = document.getElementById("total-agents");
+const total_agents = $("#total-agents");
 
-total_agents.textContent = agentInputs.length;
+total_agents.text(agentInputs.length);
 
 $(".select-all-checkbox input").on("change", function (e) {
   const checked = $(e.target).is(":checked");
@@ -228,7 +219,7 @@ $(".select-all-checkbox input").on("change", function (e) {
     agentInputs = [];
   }
 
-  total_agents.textContent = agentInputs.length;
+  total_agents.text(agentInputs.length);
 });
 
 $(".select-checkbox input").on("change", function (e) {
@@ -240,7 +231,7 @@ $(".select-checkbox input").on("change", function (e) {
     agentInputs.splice(index, 1);
   }
 
-  total_agents.textContent = agentInputs.length;
+  total_agents.text(agentInputs.length);
 });
 
 // screen 2
@@ -390,7 +381,7 @@ function screen2Close(e) {
   screen2Boxes = as.length;
   count = Math.ceil(screen2Boxes / limit);
   displayScreen2Boxes();
-  total_agents.textContent = agentInputs.length;
+  total_agents.text(agentInputs.length);
 
   const selects = Array.from(
     document.getElementsByClassName("select-checkbox")
@@ -448,7 +439,7 @@ function screen3Close(e) {
   screen2Boxes = as.length;
   count = Math.ceil(screen2Boxes / limit);
   displayScreen2Boxes();
-  total_agents.textContent = agentInputs.length;
+  total_agents.text(agentInputs.length);
   displayScreen3Agents();
   const selects = Array.from(
     document.getElementsByClassName("select-checkbox")
@@ -606,8 +597,8 @@ function displayCharts() {
         type: "gradient",
         gradient: {
           shadeIntensity: 0.5,
-          opacityFrom: 0.1,
-          opacityTo: 0.2,
+          opacityFrom: 0.2,
+          opacityTo: 0.5,
           stops: [0, 90, 100],
         },
       },
@@ -673,8 +664,86 @@ $("#apply-button").on("click", function () {
   screen2Boxes = as.length;
   count = Math.ceil(screen2Boxes / limit);
   displayScreen2Boxes();
-  console.log(as);
   displayCharts();
   renderCharts();
   displayScreen3Agents();
+});
+
+// call center members
+
+// data table
+
+const columns2 = [
+  {
+    title: "Members",
+    data: "name",
+    render: function (data, _, row) {
+      const avatar = data.split(" ");
+      const one = avatar[0].substring(0, 1);
+      const two = avatar[1].substring(0, 1);
+      return `<div class="table-member">
+        <span class="table-avatar" style="background-color: ${
+          row.color
+        }"><span class="online"></span>${one + two}</span>
+        <span class="table-name">${data}</span>
+        </div>`;
+    },
+  },
+  {
+    title: "Session Duration",
+    data: "sessionDuration",
+  },
+  {
+    title: "Assigned Queues",
+    data: "assignedQueues",
+    render: function (data, type) {
+      let element = ``;
+
+      if (data == null) {
+        element = "-";
+      } else if (data.length > 1) {
+        element = `<span>${data.length} &nbsp; <i class="fa-regular fa-copy"></i></span>`;
+      } else {
+        element = `<span>${data[0].type}</span><span class="member-role ${data[0].role}">${data[0].role}</span>`;
+      }
+      return element;
+    },
+  },
+  {
+    title: "Call Recording",
+    data: "callRecording",
+    render: function (data, type) {
+      return `<label class="switch">
+  <input type="checkbox" ${data ? "checked" : ""}>
+  <span class="slider round"></span>
+</label>`;
+    },
+  },
+  {
+    title: "Skills",
+    data: "skills",
+    render: function (data, type) {
+      let element = ``;
+      for (let d of data) {
+        element += `<span class="member-skill">${d}</span>`;
+      }
+      return element;
+    },
+  },
+];
+
+new DataTable("#members-data-table", {
+  dom: "Bfrtip",
+  info: false,
+  paging: false,
+  columns: columns2,
+  data: agents,
+  language: { search: "", searchPlaceholder: "Search for member" },
+  buttons: [
+    { text: "Manage Members", action: function () {} },
+    { text: "Manage Skills", action: function () {} },
+  ],
+  createdRow: function (row, data) {
+    $(row).attr("id", data.name.replace(" ", ""));
+  },
 });

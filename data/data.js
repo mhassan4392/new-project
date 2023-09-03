@@ -8,7 +8,7 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
-    color: "pink",
+    color: "#562863",
     dataSet: {
       totalCalls: [10, 15, 20, 25, 30, 35, 40],
       handledCalls: [10, 15, 20, 25, 30, 35, 40],
@@ -17,6 +17,15 @@ const agents = [
       averageRingTime: [10, 15, 20, 25, 30, 35, 40],
       averageCallTime: [10, 15, 20, 25, 30, 35, 40],
     },
+    sessionDuration: "-",
+    callRecording: true,
+    skills: ["Spanish"],
+    assignedQueues: [
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+    ],
   },
   {
     name: "Alice Smith",
@@ -27,7 +36,7 @@ const agents = [
     handledCalls: "15",
     missedCalls: "19",
     rejectedCalls: "14",
-    color: "purple",
+    color: "#496240",
     dataSet: {
       totalCalls: [5, 10, 5, 55, 40, 15, 10],
       handledCalls: [5, 10, 5, 55, 40, 15, 10],
@@ -36,6 +45,23 @@ const agents = [
       averageRingTime: [5, 10, 5, 55, 40, 15, 10],
       averageCallTime: [5, 10, 5, 55, 40, 15, 10],
     },
+    sessionDuration: "02:01:28",
+    callRecording: false,
+    skills: ["Rochester", "Spanish"],
+    assignedQueues: [
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+    ],
   },
   {
     name: "Amelia Johns",
@@ -46,7 +72,7 @@ const agents = [
     handledCalls: "22",
     missedCalls: "29",
     rejectedCalls: "24",
-    color: "brown",
+    color: "#bc9cd1",
     dataSet: {
       totalCalls: [25, 30, 15, 5, 10, 45, 60],
       handledCalls: [25, 30, 15, 5, 10, 45, 60],
@@ -55,6 +81,23 @@ const agents = [
       averageRingTime: [25, 30, 15, 5, 10, 45, 60],
       averageCallTime: [25, 30, 15, 5, 10, 45, 60],
     },
+    sessionDuration: "-",
+    callRecording: false,
+    skills: [],
+    assignedQueues: [
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+    ],
   },
   {
     name: "Charles Williams",
@@ -65,7 +108,7 @@ const agents = [
     handledCalls: "32",
     missedCalls: "39",
     rejectedCalls: "34",
-    color: "blue",
+    color: "#39aa43",
     dataSet: {
       totalCalls: [15, 10, 45, 25, 30, 15, 20],
       handledCalls: [15, 10, 45, 25, 30, 15, 20],
@@ -74,6 +117,10 @@ const agents = [
       averageRingTime: [15, 10, 45, 25, 30, 15, 20],
       averageCallTime: [15, 10, 45, 25, 30, 15, 20],
     },
+    sessionDuration: "-",
+    callRecording: false,
+    skills: ["Spanish"],
+    assignedQueues: null,
   },
   {
     name: "Evelin Miller",
@@ -84,7 +131,7 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
-    color: "green",
+    color: "#4bd64d",
     dataSet: {
       totalCalls: [35, 10, 25, 55, 10, 10, 5],
       handledCalls: [35, 10, 25, 55, 10, 10, 5],
@@ -93,6 +140,10 @@ const agents = [
       averageRingTime: [35, 10, 25, 55, 10, 10, 5],
       averageCallTime: [35, 10, 25, 55, 10, 10, 5],
     },
+    sessionDuration: "-",
+    callRecording: false,
+    skills: ["French", "Priority"],
+    assignedQueues: null,
   },
   {
     name: "Jeremy Brown",
@@ -103,7 +154,7 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
-    color: "red",
+    color: "#8a7818",
     dataSet: {
       totalCalls: [15, 40, 25, 55, 20, 5, 25],
       handledCalls: [15, 40, 25, 55, 20, 5, 25],
@@ -112,6 +163,15 @@ const agents = [
       averageRingTime: [15, 40, 25, 55, 20, 5, 25],
       averageCallTime: [15, 40, 25, 55, 20, 5, 25],
     },
+    sessionDuration: "-",
+    callRecording: false,
+    skills: ["Spanish", "Rochester"],
+    assignedQueues: [
+      {
+        type: "Customer Support",
+        role: "Manager",
+      },
+    ],
   },
   {
     name: "Larry Davis",
@@ -122,7 +182,7 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
-    color: "yellow",
+    color: "#d85b46",
     dataSet: {
       totalCalls: [5, 10, 15, 20, 25, 30, 35],
       handledCalls: [5, 10, 15, 20, 25, 30, 35],
@@ -131,6 +191,19 @@ const agents = [
       averageRingTime: [5, 10, 15, 20, 25, 30, 35],
       averageCallTime: [5, 10, 15, 20, 25, 30, 35],
     },
+    sessionDuration: "02:01:28",
+    callRecording: true,
+    skills: ["Rochester"],
+    assignedQueues: [
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+    ],
   },
   {
     name: "Peter Johson",
@@ -141,15 +214,24 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
-    color: "orange",
+    color: "#c20c60",
     dataSet: {
-      totalCalls: [65, 10, 45, 25, 15, 25, 15],
-      handledCalls: [65, 10, 45, 25, 15, 25, 15],
-      missedCalls: [65, 10, 45, 25, 15, 25, 15],
-      rejectedCalls: [65, 10, 45, 25, 15, 25, 15],
-      averageRingTime: [65, 10, 45, 25, 15, 25, 15],
-      averageCallTime: [65, 10, 45, 25, 15, 25, 15],
+      totalCalls: [60, 10, 45, 25, 15, 25, 15],
+      handledCalls: [60, 10, 45, 25, 15, 25, 15],
+      missedCalls: [60, 10, 45, 25, 15, 25, 15],
+      rejectedCalls: [60, 10, 45, 25, 15, 25, 15],
+      averageRingTime: [60, 10, 45, 25, 15, 25, 15],
+      averageCallTime: [60, 10, 45, 25, 15, 25, 15],
     },
+    sessionDuration: "02:01:28",
+    callRecording: false,
+    skills: [],
+    assignedQueues: [
+      {
+        type: "Billing Support",
+        role: "Agent",
+      },
+    ],
   },
   {
     name: "John Doe",
@@ -160,7 +242,7 @@ const agents = [
     handledCalls: "2",
     missedCalls: "9",
     rejectedCalls: "4",
-    color: "aqua",
+    color: "#ade5cf",
     dataSet: {
       totalCalls: [15, 60, 40, 15, 5, 45, 15],
       handledCalls: [15, 60, 40, 15, 5, 45, 15],
@@ -169,6 +251,10 @@ const agents = [
       averageRingTime: [15, 60, 40, 15, 5, 45, 15],
       averageCallTime: [15, 60, 40, 15, 5, 45, 15],
     },
+    sessionDuration: "02:01:28",
+    callRecording: false,
+    skills: [],
+    assignedQueues: null,
   },
 ];
 
