@@ -1,0 +1,302 @@
+/* header */
+header {
+  display: flex;
+}
+
+.header-icons {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  width: min-content;
+  border: 1px solid #dadadd;
+  margin-left: 17px;
+}
+
+.header-icons div {
+  padding: 6px 8px;
+  padding-top: 10px;
+  font-size: 16px;
+  background-color: #fcfdfd;
+  cursor: pointer;
+}
+
+.header-icons .header-icon.selected {
+  background-color: #dadadd;
+}
+
+.header-icons .header-icon {
+  border-right: 2px solid #dadadd;
+}
+
+.header-icons .header-icon:last-child {
+  border-right: 0;
+}
+
+/* filters */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  background-color: #dadadd;
+  padding: 15px;
+  margin: 5px 0;
+  border-radius: 10px;
+}
+
+.filters div .dropdown {
+  margin-right: 20px;
+}
+
+.filters div:nth-child(1) {
+  display: flex;
+}
+
+.date-range-filter {
+  display: flex;
+  align-items: center;
+}
+
+.date-range {
+  display: flex;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+#date-range-1,
+#date-range-2 {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px;
+  min-width: 150px;
+  cursor: pointer;
+}
+
+/* .date-range-1::after, */
+#date-range-2::after {
+  content: "\f073";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#date-range-1 {
+  border-right: 2px solid #dadadd;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#date-range-2 {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* screen 2 */
+.screen2-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.screen2-box {
+  grid-column: auto;
+}
+
+.box-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.screen2-box .box-card {
+  background-color: white;
+  padding: 0px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px #dadadd;
+}
+
+.screen2-box .close-box {
+  cursor: pointer;
+}
+
+.screen2-box .box-card .box-calls,
+.screen2-box .box-card .box-progress {
+  border-bottom: 2px solid #ebebed;
+  padding: 18px 0px;
+}
+
+.screen2-box .box-card .box-progress:last-child {
+  border-bottom: 0px;
+}
+
+.screen2-box .box-card .box-calls div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.screen2-box .box-card .box-calls p {
+  font-weight: bold;
+}
+
+.screen2-box .box-card .box-calls span {
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+.progress {
+  position: relative;
+  margin: 4px;
+  /* float: left; */
+  text-align: center;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.barOverflow {
+  /* Wraps the rotating .bar */
+  position: relative;
+  overflow: hidden; /* Comment this line to understand the trick */
+  width: 130px;
+  height: 65px; /* Half circle (overflow) */
+  margin-bottom: -14px; /* bring the numbers up */
+}
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130px;
+  height: 130px; /* full circle! */
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 30px solid #eee; /* half gray, */
+  /* border-bottom-color: #0bf; half azure */
+  /* border-right-color: #0bf; */
+}
+
+.handled .bar {
+  border-bottom-color: #209218; /* half azure */
+  border-right-color: #209218;
+}
+
+.missed .bar {
+  border-bottom-color: #ffbe01; /* half azure */
+  border-right-color: #ffbe01;
+}
+
+.rejected .bar {
+  border-bottom-color: #cc1700; /* half azure */
+  border-right-color: #cc1700;
+}
+
+.progress-number {
+  position: absolute;
+  top: 48px;
+  font-weight: bold;
+}
+
+.progress-length {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 6px 0px 7px 4px;
+  font-weight: bold;
+}
+
+.screen2-box .box-progress .title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.screen2-box .box-progress .subtitle {
+  font-size: 13px;
+}
+
+.screen2-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.screen2-pagination .pages {
+  display: flex;
+  align-items: center;
+}
+
+.screen2-pagination .pages .left-btn,
+.screen2-pagination .pages .right-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  border: 1px solid #dadadd;
+  margin-left: 15px;
+  border-radius: 10px;
+  font-size: 11px !important;
+  background-color: white;
+}
+
+.screen2-pagination .pages .left-btn.disabled,
+.screen2-pagination .pages .right-btn.disabled {
+  background-color: transparent !important;
+  cursor: not-allowed !important;
+}
+
+.screen2-pagination .pages .left-btn {
+  margin-right: 15px;
+}
+
+.screen2-pagination .pages .number {
+  font-weight: bold;
+}
+
+/* screen3 */
+
+.screen3-agents {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.screen3-agent {
+  display: flex;
+  margin-right: 50px;
+  align-items: center;
+}
+
+.screen3-agent div {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.screen3-agent p {
+  font-weight: bold;
+}
+
+.screen3-agent i {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.screen3-charts {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.screen3-chart {
+  background-color: white;
+  border-radius: 10px !important;
+  box-shadow: 0px 0px 5px 2px #dadadd;
+  padding: 15px 10px;
+}
