@@ -158,6 +158,10 @@ header {
   box-shadow: 0px 0px 5px 1px #dbdbde;
 }
 
+#activity-data-table tbody tr {
+  background-color: transparent;
+}
+
 #activity-data-table thead {
   display: none;
 }
