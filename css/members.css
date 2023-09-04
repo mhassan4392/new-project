@@ -1,0 +1,264 @@
+/* header */
+
+.settings-dropdown .dropdown-button {
+  width: 60px !important;
+  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f6 100%) !important;
+  border-radius: 10px;
+}
+
+.settings-dropdown .dropdown-button::after {
+  content: "\f0d7";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-size: 10px;
+}
+
+.heading-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.heading-area .title-box div {
+  display: flex;
+  align-items: center;
+}
+
+.heading-area .title {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.heading-area .status {
+  padding: 7px 12px;
+  box-shadow: 0px 0px 2px 1px #dbdbde;
+  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f6 100%) !important;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
+.heading-area .status p {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.heading-area .status i {
+  color: #26d00f;
+  margin-right: 5px;
+}
+
+.heading-area .subtitle {
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.status-boxes {
+  margin-top: 30px;
+  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.05fr 1fr 1fr 1.05fr 1fr 1fr;
+}
+
+.status-boxes .status-box {
+  background-color: white;
+  padding: 15px 20px;
+  box-shadow: 0px 0px 5px 1px #dbdbde;
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-boxes .status-box:nth-child(3),
+.status-boxes .status-box:nth-child(6) {
+  margin-right: 20px;
+}
+
+.status-boxes .status-box:nth-child(3),
+.status-boxes .status-box:nth-child(6),
+.status-boxes .status-box:nth-child(8) {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.status-boxes .status-box:nth-child(1),
+.status-boxes .status-box:nth-child(4),
+.status-boxes .status-box:nth-child(7) {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.status-boxes .status-box .title-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+}
+
+.status-boxes .status-box .title-box .title {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.status-boxes .status-box .title-box .subtitle {
+  font-size: 13px;
+}
+
+.status-boxes .status-box i {
+  font-size: 16px;
+}
+
+/* tabs */
+
+.tabs-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  padding: 0px 20px;
+}
+
+.tab-button {
+  border-bottom: 1px solid #dadada;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.tab-button.selected {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 0;
+  font-weight: bold;
+  border-top: 2px solid #0695ff;
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  box-sizing: border-box;
+}
+
+.tab4-button {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.table-search label::before {
+  content: "\f002";
+  font-family: FontAwesome;
+}
+
+.table-search label input[type="search"] {
+  border: none !important;
+  padding-left: 10px;
+}
+
+.table-search label input[type="search"]:focus {
+  border: none;
+  outline: none;
+}
+
+.table-search label {
+  background-color: white !important;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #dbdbde;
+  border: 1px solid #dadada;
+}
+
+.table-search {
+  margin-left: 30px;
+  padding-top: 12px;
+}
+
+.data-table-section {
+  margin-top: 30px;
+}
+
+.table-role {
+  padding: 5px 10px;
+  border-radius: 20px;
+  width: min-content;
+  font-size: 11px;
+}
+
+.table-role.Manager {
+  background-color: #2cc421;
+}
+
+.table-role.Agent {
+  background-color: #dcdcde;
+}
+
+.table-status {
+  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f6 100%) !important;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #dadada;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100px;
+}
+
+.table-status span {
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.table-call-handling {
+  position: relative;
+  height: 8px;
+  background-color: #39d22c;
+}
+
+.table-call-handling .handling-inside {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 8px;
+  width: 50%;
+  background-color: #ff3c23;
+}
+
+.table-marked-as-away span {
+  font-size: 11px;
+}
+
+.table-mark {
+  font-weight: bold;
+  font-size: 14px !important;
+}
+
+.table-mark-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: orange;
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.dt-buttons .dt-button {
+  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f6 100%) !important;
+  border: 1px solid #dadada !important;
+  margin-right: 10px !important;
+  border-radius: 10px !important;
+}
+
+.filters-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.filters-left-section {
+  display: flex;
+  padding-bottom: 30px;
+}
+
+table {
+  width: 100% !important;
+}
+
+.members-data-table thead th {
+  padding: 10px !important;
+}
