@@ -81,25 +81,144 @@
         <div class="tabs-views">
           <div class="tab1-view hidden"></div>
           <div class="tab2-view">
-            <section class="data-table-section">
-              <div class="filters-section">
-                <div class="table-buttons"></div>
-                <div class="filters-left-section">
-                  <div class="table-dropdowns">
-                    <div class="dropdown">
-                      <div class="dropdown-button">Select All Columns</div>
+            <div class="managers-view">
+              <section class="data-table-section">
+                <div class="filters-section">
+                  <div class="table-buttons"></div>
+                  <div class="filters-left-section">
+                    <div class="table-dropdowns">
+                      <div class="dropdown">
+                        <div class="dropdown-button">Select All Columns</div>
+                      </div>
                     </div>
+                    <div class="table-search"></div>
                   </div>
-                  <div class="table-search"></div>
+                </div>
+                <table id="members-data-table" class="data-table"></table>
+              </section>
+            </div>
+            <div class="manage-members-view hidden">
+              <div class="back-button">
+                <i class="fa-solid fa-circle-left"></i>
+                <p>Back to Members</p>
+              </div>
+              <p class="title">Memeber Management</p>
+              <p>
+                To add or remove members in this queue, select the desired
+                agents and appropriate action below.
+              </p>
+
+              <div class="member-management-data-table-section">
+                <div class="management-data-table">
+                  <p class="title">
+                    Call Center Members (<span class="unqueue-members-number"
+                      >0</span
+                    >)
+                  </p>
+
+                  <div
+                    class="management-table-search unqueue-table-search"
+                  ></div>
+                  <div class="management-select-section">
+                    <div>
+                      <p class="unqueue-select-number">0</p>
+                      <p>members selected</p>
+                      <p class="unqueue-clear hidden">clear</p>
+                    </div>
+
+                    <button class="unqueue-button" disabled>
+                      Assign to Queue
+                      <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                  </div>
+                  <table id="unqueue-data-table" class="data-table"></table>
+                </div>
+                <div class="management-data-table">
+                  <p class="title">
+                    Memebers in this Queue (<span class="queue-members-number"
+                      >0</span
+                    >)
+                  </p>
+                  <div class="management-table-search queue-table-search"></div>
+                  <div class="management-select-section">
+                    <div>
+                      <p class="queue-select-number">0</p>
+                      <p>members selected</p>
+                      <p class="queue-clear hidden">clear</p>
+                    </div>
+
+                    <button class="queue-button" disabled>
+                      <i class="fa-solid fa-right-from-bracket"></i>
+                      UnAssign from Queue
+                    </button>
+                  </div>
+                  <table id="queue-data-table" class="data-table"></table>
                 </div>
               </div>
-              <table id="members-data-table" class="data-table"></table>
-            </section>
+            </div>
           </div>
           <div class="tab3-view hidden"></div>
         </div>
       </section>
     </main>
+
+    <div class="right-sidebar hidden">
+      <p>Default Answering Device</p>
+      <div class="dropdown">
+        <div class="dropdown-button" style="width: 100%">
+          <div>
+            <i
+              class="fa-solid fa-blender-phone"
+              style="color: #22ce13; margin-right: 10px"
+            ></i>
+            Alice's Device
+          </div>
+        </div>
+      </div>
+
+      <div class="right-sidebar-card">
+        <div class="right-sidebar-card-top">
+          <div>
+            <i class="fa-solid fa-ear-listen" style="color: #fe3518"></i>
+            <span>Eavesdropping (01:38)</span>
+          </div>
+          <p>Member: Peter Johnson</p>
+          <div class="buttons">
+            <button class="btn">Whisper</button>
+            <button class="btn">Barge</button>
+          </div>
+        </div>
+        <div class="right-sidebar-card-bottom">
+          <div>
+            <p class="title">Caller Id</p>
+            <p class="subtitle">
+              +1 415 886 7900 <i class="fa-solid fa-flag-usa"></i>
+            </p>
+          </div>
+          <div>
+            <p class="title">Caller Name</p>
+            <p class="subtitle">2600Hz</p>
+          </div>
+          <div>
+            <p class="title">From Queue</p>
+            <p class="subtitle">Billing Support</p>
+          </div>
+          <div>
+            <p class="title">Hold Time</p>
+            <p class="subtitle">00:05</p>
+          </div>
+          <div>
+            <p class="title">Total Call Duration</p>
+            <p class="subtitle">02:57</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="right-sidebar-end-call">
+        <i class="fa-solid fa-download"></i>
+        <span>End Call</span>
+      </button>
+    </div>
     <script
       src="https://kit.fontawesome.com/946037eca7.js"
       crossorigin="anonymous"

@@ -58,7 +58,7 @@
   margin-top: 30px;
   display: flex;
   display: grid;
-  grid-template-columns: 1fr 1fr 1.05fr 1fr 1fr 1.05fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1.07fr 1fr 1fr 1.07fr 1fr 1fr;
 }
 
 .status-boxes .status-box {
@@ -114,7 +114,6 @@
   display: flex;
   align-items: center;
   margin-top: 30px;
-  padding: 0px 20px;
 }
 
 .tab-button {
@@ -173,6 +172,7 @@
 }
 
 .table-role {
+  visibility: hidden !important;
   padding: 5px 10px;
   border-radius: 20px;
   width: min-content;
@@ -261,4 +261,244 @@ table {
 
 .members-data-table thead th {
   padding: 10px !important;
+}
+
+/* right sidebar */
+
+.right-sidebar {
+  position: fixed;
+  width: 250px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  border-left: 1px solid #dadada;
+  padding: 20px 15px;
+}
+
+.right-sidebar-card {
+  border: 1px solid #dadada;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.right-sidebar-card-top {
+  background-color: #ffc1b9;
+  padding: 15px 10px;
+}
+
+.right-sidebar-card-top p {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.right-sidebar-card-top .buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.right-sidebar-card-top .buttons .btn {
+  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f6 100%) !important;
+  font-size: 12px;
+}
+
+.right-sidebar-card-bottom div {
+  padding: 15px 10px;
+}
+
+.right-sidebar-card-bottom div .title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.right-sidebar-card-bottom div .subtitle {
+  font-size: 12px;
+}
+
+.right-sidebar-end-call {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ff3d24;
+  cursor: pointer;
+}
+
+.right-sidebar-end-call span {
+  font-size: 13px;
+}
+
+/* members management */
+
+.back-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.back-button p {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.manage-members-view {
+  padding: 20px 0;
+}
+
+.manage-members-view .title {
+  padding: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.member-management-data-table-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.management-data-table {
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.management-data-table .title {
+  font-size: 14px;
+  padding: 0;
+}
+
+.table-role {
+  display: flex;
+  align-items: center;
+}
+
+.table-role p {
+  margin-right: 10px;
+}
+
+.management-data-table .dropdown-button {
+  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f6 100%) !important;
+  font-size: 12px;
+  padding: 8px 10px;
+}
+
+.management-data-table .dropdown-menu {
+  top: 35px;
+}
+
+#unqueue-data-table td {
+  padding: 14.5px 20px !important;
+}
+
+.management-data-table tr:nth-child(even) {
+  background-color: #f4f4f5;
+}
+
+.management-data-table thead {
+  display: none;
+}
+
+.management-table-search {
+  width: 100%;
+  border: 1px solid #dadada;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.management-table-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.management-table-search label {
+  display: flex;
+}
+
+.management-table-search label::before {
+  content: "\f002";
+  font-family: FontAwesome;
+  margin-right: 10px;
+}
+
+.management-select-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.management-select-section div {
+  display: flex;
+  gap: 5px;
+}
+
+.management-select-section .unqueue-clear,
+.management-select-section .queue-clear {
+  color: #0695ff;
+  cursor: pointer;
+}
+
+.management-select-section .unqueue-select-number,
+.management-select-section .queue-select-number {
+  font-weight: bold;
+}
+
+.management-select-section .unqueue-button,
+.management-select-section .queue-button {
+  background-color: #2297ff;
+  border: none;
+  outline: none;
+  padding: 7px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.management-select-section .unqueue-button:disabled,
+.management-select-section .queue-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.management-select-section .queue-button {
+  background-color: #ff3c23;
+}
+
+.management-select-section .queue-button i {
+  transform: rotate(180deg);
+}
+
+.management-data-table tr.select {
+  background-color: #b8deff !important;
+}
+
+.management-data-table .select .table-role {
+  visibility: visible !important;
+}
+
+.management-data-table .table-role-queue {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.management-data-table .table-role-queue div {
+  border-radius: 10px;
+  padding: 3px 10px;
+  font-size: 12px;
+}
+
+.management-data-table .table-role-queue .Manager {
+  background-color: #2ed022;
+}
+
+.management-data-table .table-role-queue .Agent {
+  background-color: transparent;
 }

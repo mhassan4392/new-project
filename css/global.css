@@ -16,6 +16,10 @@ body {
   display: none !important;
 }
 
+.show {
+  display: block;
+}
+
 /* data table */
 #data-table-section {
   margin-top: 40px !important;
@@ -169,6 +173,32 @@ body {
   display: none;
   box-shadow: 0px 0px 10px 2px #dadadd;
   z-index: 1;
+}
+
+.dropdown-select-menu {
+  padding: 0 !important;
+  width: 100%;
+}
+
+.dropdown-select-option {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-select-option:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.dropdown-select-option:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.dropdown-select-option:hover {
+  background-color: white;
+  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f6 100%) !important;
 }
 
 .search-box {
